@@ -51,7 +51,6 @@ message = client.messages.create(
 ```python
 from twilio.rest import Client
 
-# Twilio credentials
 account_sid = 'YOUR_ACCOUNT_SID'
 auth_token = 'YOUR_AUTH_TOKEN'
 
@@ -64,8 +63,8 @@ message = client.messages.create(
 )
 message = client.messages.create(
     body="Hi! Check this link: http://your-ngrok-url.ngrok.io/track",
-    from_='+1234567890',  # Your Twilio phone number
-    to='+14139239481'  # Target phone number
+    from_='+1234567890',
+    to='+14139239481'
 )
 
 print(f"Message sent: {message.sid}")
@@ -82,7 +81,6 @@ print(f"Message sent: {message.sid}")
 
 ***Console logs:***
 ```yaml
-Copy code
 IP Address: 127.0.0.1
 User Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 15_2 like Mac OS X) AppleWebKit/605.1.15
 Latitude: 53.8371663
