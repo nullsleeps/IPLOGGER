@@ -1,8 +1,9 @@
 # IPLOGGER USING SMS
 
+
 ***Flask Server***
 
-*The Flask server, written in Python, handles the following:*
+*The Flask server, handles the following:*
 
 **IP and User-Agent Logging:**
 
@@ -15,6 +16,7 @@
 **Geolocation Logging:**
 
 `Receives the latitude and longitude (if the target consents) via a POST request.`
+
 
 **How to Run the Server**
 
@@ -29,15 +31,18 @@ pip install flask twilio
 ```bash
 python server.py
 ```
+
 *Expose the Server to the Internet: Use a service like ngrok to make the server accessible:*
 ```bash
 ngrok http 8080
 ```
 *Copy the generated URL (e.g., http://your-ngrok-url.ngrok.io) and use it as the base URL for your /track endpoint.*
 
+
 **Sending the Link**
 
 `To send the link to the target device via SMS, you can use Twilio (or any other SMS service).`
+
 
 ***Using Twilio***
 
@@ -45,6 +50,7 @@ ngrok http 8080
 ```bash
 python send_sms.py
 ```
+
 
 *If you end up using Twilio, Keep in mind:*
 
@@ -58,6 +64,7 @@ message = client.messages.create(
     to='+14155552671'  # Target phone number
 )
 ```
+
 
 ***An Example would be:***
 ```python
@@ -82,6 +89,7 @@ message = client.messages.create(
 print(f"Message sent: {message.sid}")
 ```
 
+
 ***What Happens:***
 
 ***1***. *The target receives the SMS with the link.*
@@ -92,9 +100,11 @@ print(f"Message sent: {message.sid}")
 
 ***4***. *If they allow geolocation access, the latitude and longitude are also logged.*
 
+
 **Example**
 
 `When the link is clicked:`
+
 
 ***Console logs:***
 ```yaml
@@ -103,13 +113,16 @@ User Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 15_2 like Mac OS X) AppleWebKit/6
 Latitude: 53.8371663
 Longitude: -9.3515381
 ```
+
 ***Lookup the Latitude and Logitude on Google Maps for a fun surprise :)***
+
 
 **Important Notes**
 
 ***Ethical Use:***
 
 *Ensure the target has explicitly consented to this process.*
+
 ***Legal Compliance:***
 
 *Verify compliance with local laws and regulations.*
@@ -118,6 +131,8 @@ Longitude: -9.3515381
 
 *Use ngrok for testing, but for production, deploy on a proper hosting service (e.g., AWS, Azure, etc.).*
 
+
 ***Feel Free to modify the code to your liking if ykwim.***
+
 
 **Happy Hacking ;)**
