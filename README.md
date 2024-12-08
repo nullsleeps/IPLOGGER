@@ -50,7 +50,7 @@ python send_sms.py
 
 **You Can Send messages in bulk to many people, Just don't over do it or else Twilio will catch on and ban you.**
 
-`To Do It, Just copy and paste this part of the code and put it below the original code, and change the phone number to the number you desire.`
+`To Do so, Just copy and paste this part of the code and put it below the original code, and change the phone number to the number you desire.`
 ```python
 message = client.messages.create(
     body="Hi! Check this link: http://your-ngrok-url.ngrok.io/track",
